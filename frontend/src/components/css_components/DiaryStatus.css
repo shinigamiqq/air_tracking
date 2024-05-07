@@ -1,0 +1,35 @@
+.flight-container {
+    border: 10px solid #ccc;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.flight-details {
+    margin-top: 10px;
+}
+
+.custom-button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 7px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.custom-label {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.custom-input {
+    padding: 6px;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
