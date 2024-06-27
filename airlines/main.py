@@ -1,4 +1,4 @@
-from fastapi import APIRouter
+from fastapi import APIRouter,HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from redis_om import get_redis_connection
 from FlightRadar24 import FlightRadar24API
@@ -17,4 +17,4 @@ async def get_airlines(airline_name: str):
     for airline in airlines:
         if airline["Name"] == airline_name:
             return airline
-    return airlines
+    return {"msg": "Null"}

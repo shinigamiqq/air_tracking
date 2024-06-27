@@ -24,7 +24,6 @@ def get_flights_between_airports(departure_airport: str, arrival_airport: str):
     for item in departure_flights:
         if item["flight"]["airport"]["destination"]["code"]["iata"] == arrival_airport:
             flights_between_airports.append(item)
-    
     return flights_between_airports
 
 @app.get("/diaries/{departure_airport}/{arrival_airport}")

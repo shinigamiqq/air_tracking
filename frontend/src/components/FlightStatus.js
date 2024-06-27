@@ -1,12 +1,11 @@
-// src/FlightStatus.js
 import React, { useState } from 'react';
 import axios from 'axios';
 import './css_components/FlightStatus.css';
-
 const FlightStatus = () => {
     const [flightId, setFlightId] = useState('');
     const [id, setId] = useState('');
     const [flightData, setFlightData] = useState(null);
+    const [mapUrl, setMapUrl] = useState(null);
     const [error, setError] = useState(null);
 
     const handleFlightIdChange = (e) => {
@@ -20,7 +19,8 @@ const FlightStatus = () => {
     const handleFetchFlightStatus = async () => {
         try {
             const response = await axios.get(`/flights/${flightId}?id=${id}`);
-            setFlightData(response.data);
+            setFlightData(response.data['flight_data']);
+            setMapUrl(response.data['map_url']);
             setError(null);
         } catch (err) {
             console.error(err);
@@ -43,6 +43,7 @@ const FlightStatus = () => {
                         <strong>{key}: </strong> {value}
                     </p>
                 ))}
+               {mapUrl && <iframe src={mapUrl} title="Flight Map" className="custom-iframe"></iframe>}
             </div>
         );
     };
